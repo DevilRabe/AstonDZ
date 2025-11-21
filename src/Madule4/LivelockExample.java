@@ -20,7 +20,6 @@ public class LivelockExample {
 
         public void eatWith(Spoon spoon, Spoon otherSpoon) {
             while (mySpoon != spoon) {
-                // Передаём ложку партнёру, если она не моя
                 System.out.println(name + ": передаю ложку");
                 mySpoon = spoon;
                 spoon = otherSpoon;
@@ -44,8 +43,8 @@ public class LivelockExample {
         Spoon spoon1 = new Spoon("Ложка 1");
         Spoon spoon2 = new Spoon("Ложка 2");
 
-        HungryPerson person1 = new HungryPerson("Алиса", spoon1, spoon2);
-        HungryPerson person2 = new HungryPerson("Боб", spoon2, spoon1);
+        HungryPerson person1 = new HungryPerson("Елена", spoon1, spoon2);
+        HungryPerson person2 = new HungryPerson("Сергей", spoon2, spoon1);
 
         new Thread(person1).start();
         new Thread(person2).start();
